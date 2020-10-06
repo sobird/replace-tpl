@@ -1,10 +1,9 @@
 # replace-tpl
-
 Replaces a template strings with variables.
 
 ## Usage
 
-```
+```js
 const replaceTpl = require('replace-tpl');
 
 var pathTpl = '/some/dir/[name].[hash:8].js';
@@ -15,3 +14,6 @@ var newPath = replaceTpl(pathTpl, {
 
 console.log(newPath); // /some/dir/foo.de56437c.js
 ```
+
+## API
+replaceTpl(path, variables)
