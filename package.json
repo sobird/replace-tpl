@@ -1,10 +1,14 @@
 {
   "name": "replace-tpl",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Replaces a template strings with variables.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:sobird/replace-tpl.git"
   },
   "keywords": [
     "path",
