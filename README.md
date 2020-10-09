@@ -16,4 +16,4 @@ console.log(newPath); // /some/dir/foo.de56437c.js
 ```
 
 ## API
-replaceTpl(path, variables)
+replaceTpl(path, data)
