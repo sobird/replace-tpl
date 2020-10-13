@@ -1,6 +1,6 @@
 {
   "name": "replace-tpl",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Replaces a template strings with variables.",
   "main": "index.js",
   "scripts": {

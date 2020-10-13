@@ -9,7 +9,9 @@ const replaceTpl = require('../index');
 
 describe('replaceTpl()', function () {
   let pathTpl = '/some/dir/[name].[hash:8].js';
+  let pathAtTpl = '@/[name].[hash:8].js';
   let data = {
+    at: '/some/dir',
     name: 'foo',
     hash: 'de56437c1e9544aa2521352dcdf26cb160093e52d4ea565cdf0d2bb279e22d12',
   };
@@ -19,4 +21,10 @@ describe('replaceTpl()', function () {
   it(`${pathTpl} -> ${expectation}`, function () {
     assert.strictEqual(replaceTpl(pathTpl, data), expectation);
   });
+
+  it(`${pathAtTpl} -> ${expectation}`, function () {
+    assert.strictEqual(replaceTpl(pathAtTpl, data), expectation);
+  });
 });
+
+

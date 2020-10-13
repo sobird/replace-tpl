@@ -15,6 +15,7 @@ const REGEXP_BASENAME = /\[basename\]/gi;
 const REGEXP_EXT = /\[ext\]/gi;
 const REGEXP_QUERY = /\[query\]/gi;
 const REGEXP_URL = /\[url\]/gi;
+const REGEXP_AT = /\@/gi;
 
 const withHashLength = (replacer, handlerFn, assetInfo) => {
   const fn = (match, hashLength, ...args) => {
@@ -53,7 +54,7 @@ const escapePathVariables = value => {
     : value;
 };
 
-module.exports = (path, data, assetInfo) => {
+module.exports = (path, data = {}, assetInfo) => {
   const name = data.name;
   const hash = data.hash
   const chunkName = data.chunkName;
@@ -65,6 +66,7 @@ module.exports = (path, data, assetInfo) => {
   const extname = data.extname;
   const basename = data.basename;
   const filename = data.filename;
+  const at = data.at;
 
   if (typeof path === "function") {
     path = path(data);
@@ -101,7 +103,7 @@ module.exports = (path, data, assetInfo) => {
       // query is optional, it's OK if it's in a path but there's nothing to replace it with
       .replace(REGEXP_QUERY, getReplacer(data.query, true))
       // only available in sourceMappingURLComment
-      .replace(REGEXP_URL, getReplacer(data.url))
+      .replace(REGEXP_AT, getReplacer(at))
       .replace(/\[\\(\\*[\w:]+\\*)\\\]/gi, "[$1]")
   );
 };
